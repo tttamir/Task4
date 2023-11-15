@@ -92,27 +92,48 @@ public class Main {
 
 
         System.out.println("Task5");
-        for (int i = 0; i < arr.length; i++) {
-            if (i != arr.length - 1 ) {
-                int temp= arr[i] ;
-                arr[i] = arr[arr.length - 1 - i ];
-                arr[arr.length - 1 - i] = temp;
+        for (int i = arr.length-1; i >=0; i--) {
+
                 System.out.println(arr[i]);
-            }
+
         }
 
-         int p = sc.nextInt();
+
+        System.out.println("Task*");
+        System.out.print("vvedi razmer massiva: ");
+        int p = sc.nextInt();
+
         int[] arr1 =new  int[p];
         int w;
-        System.out.println("Task*");
+
         for (int i = 0; i < arr1.length; i++) {
             System.out.print("["+i+"] = ");
             w = sc.nextInt();
             arr1[i]=w;
         }
         for ( int i = 0; i < arr1.length; i++) {
-            System.out.println(arr[i]);
+            System.out.print(arr1[i]+" ");
         }
 
+        int result = 0;
+        for (int i =arr1.length -1 , n = 0; i >= 0; --i, n++) {
+            int pos = (int)Math.pow(10, i);
+            result += arr1[n] * pos;
+        }
+        System.out.println("chisloи - "+result);
+
+        result=result+1;
+        System.out.println("chisloи - "+result);
+        String numberS = Integer.toString(result);
+        char[] charArray = numberS.toCharArray();
+
+        int[] intArray = new int[charArray.length];
+        for (int i = 0; i < charArray.length; i++) {
+            intArray[i] = Character.getNumericValue(charArray[i]);
+        }
+
+        for ( int i = 0; i < arr1.length; i++) {
+            System.out.print(intArray[i]+" ");
+        }
     }
 }
